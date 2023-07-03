@@ -7,6 +7,6 @@ function nameOutput() {
   if (inputNameElement.value === "") {
     outputNameElement.textContent = "Anonymous";
   } else {
-    outputNameElement.textContent = inputNameElement.value;
+    outputNameElement.textContent = inputNameElement.value.trim();
   }
 }

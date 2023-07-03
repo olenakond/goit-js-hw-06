@@ -20,8 +20,6 @@ const imageElementArr = images.map((image) => {
   return `<li><img src=${url} alt=${alt} width='320px'/></li>`;
 });
 
-const listElement = `${imageElementArr.join("")}`;
-
-imagesList.insertAdjacentHTML("afterbegin", listElement);
+imagesList.insertAdjacentHTML("afterbegin", `${imageElementArr.join("")}`);
 
 console.log(imagesList);

@@ -13,17 +13,26 @@ buttonCreateElement.addEventListener("click", onCreateClick);
 buttonDestroyElement.addEventListener("click", destroyBoxes);
 
 function onCreateClick() {
-  createBoxes(inputElement.value);
+  const minValue = Number(inputElement.getAttribute("min"));
+  const maxValue = Number(inputElement.getAttribute("max"));
+
+  if (inputElement.value < minValue || inputElement.value > maxValue) {
+    alert("Please enter your number from 1 to 100!");
+  } else {
+    createBoxes(inputElement.value);
+  }
 }
 
 function destroyBoxes() {
   boxCollection.innerHTML = "";
+  inputElement.value = "";
 }
 
 function createBoxes(amount) {
+  const stepValue = Number(inputElement.getAttribute("step"));
   let sizeBox = 30;
 
-  for (let i = 1; i <= amount; i += 1) {
+  for (let i = 1; i <= amount; i += stepValue) {
     const box = document.createElement("div");
     sizeBox += 10;
     box.style.width = `${sizeBox}px`;
